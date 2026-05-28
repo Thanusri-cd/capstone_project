@@ -50,7 +50,7 @@ function App() {
           marginBottom: "20px",
         }}
       >
-        Village Autocomplete Search
+        VILLAGE NAME FIXED Search
       </h1>
 
       <input
