@@ -21,6 +21,8 @@ function App() {
         `https://geo-api-backend-4iym.vercel.app/api/villages?search=${value}`
       );
 
+      console.log(response.data);
+
       setVillages(response.data);
 
     } catch (error) {
@@ -92,7 +94,7 @@ function App() {
                   color: "#222",
                 }}
               >
-                {village.village_name}
+                {village.village_name || "No Village Name"}
               </h2>
 
               <p
@@ -101,7 +103,7 @@ function App() {
                   color: "#555",
                 }}
               >
-                <strong>District:</strong> {village.district_name}
+                <strong>District:</strong> {village.district_name || "N/A"}
               </p>
 
               <p
@@ -110,7 +112,7 @@ function App() {
                   color: "#555",
                 }}
               >
-                <strong>Sub District:</strong> {village.sub_district_name}
+                <strong>Sub District:</strong> {village.sub_district_name || "N/A"}
               </p>
 
               <p
@@ -119,7 +121,7 @@ function App() {
                   color: "#555",
                 }}
               >
-                <strong>State:</strong> {village.state_name}
+                <strong>State:</strong> {village.state_name || "N/A"}
               </p>
 
               <p
@@ -129,7 +131,7 @@ function App() {
                   fontSize: "14px",
                 }}
               >
-                <strong>Source File:</strong> {village.source_file}
+                <strong>Source File:</strong> {village.source_file || "N/A"}
               </p>
 
             </div>
