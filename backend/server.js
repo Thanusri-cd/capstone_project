@@ -50,16 +50,19 @@ app.get("/api/villages", async (req, res) => {
 
   try {
 
-    const search = req.query.search;
+    const search = req.query.search || "";
 
     const result = await pool.query(
       `
-      SELECT area_name, district_name, state_name
+      SELECT
+        village_name,
+        district_name,
+        state_name
       FROM villages
-      WHERE area_name ILIKE $1
-      LIMIT 10
+      WHERE village_name ILIKE $1
+      LIMIT 20
       `,
-      [`${search}%`]
+      [`%${search}%`]
     );
 
     res.json(result.rows);
@@ -69,13 +72,10 @@ app.get("/api/villages", async (req, res) => {
     console.error(error);
 
     res.status(500).json({
-      error: "Server Error",
+      error: error.message,
     });
-
   }
-
 });
-
 
 const PORT = process.env.PORT || 5000;
 
