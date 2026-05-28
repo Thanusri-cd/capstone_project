@@ -63,7 +63,10 @@ app.get("/api/villages", async (req, res) => {
         sub_district_name,
         source_file
       FROM villages
-      WHERE village_name ILIKE $1
+      WHERE village_name IS NOT NULL
+      AND TRIM(village_name) != ''
+      AND village_name ILIKE $1
+      ORDER BY village_name ASC
       LIMIT 20
       `,
       [`%${search}%`]

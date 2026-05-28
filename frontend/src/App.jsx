@@ -30,6 +30,7 @@ function App() {
       console.error(error);
 
     }
+
   };
 
   return (
@@ -94,34 +95,19 @@ function App() {
                   color: "#222",
                 }}
               >
-                {village.village_name || "No Village Name"}
+                {village.village_name}
               </h2>
 
-              <p
-                style={{
-                  margin: "5px 0",
-                  color: "#555",
-                }}
-              >
-                <strong>District:</strong> {village.district_name || "N/A"}
+              <p style={{ margin: "5px 0", color: "#555" }}>
+                <strong>District:</strong> {village.district_name}
               </p>
 
-              <p
-                style={{
-                  margin: "5px 0",
-                  color: "#555",
-                }}
-              >
-                <strong>Sub District:</strong> {village.sub_district_name || "N/A"}
+              <p style={{ margin: "5px 0", color: "#555" }}>
+                <strong>Sub District:</strong> {village.sub_district_name}
               </p>
 
-              <p
-                style={{
-                  margin: "5px 0",
-                  color: "#555",
-                }}
-              >
-                <strong>State:</strong> {village.state_name || "N/A"}
+              <p style={{ margin: "5px 0", color: "#555" }}>
+                <strong>State:</strong> {village.state_name}
               </p>
 
               <p
@@ -131,7 +117,7 @@ function App() {
                   fontSize: "14px",
                 }}
               >
-                <strong>Source File:</strong> {village.source_file || "N/A"}
+                <strong>Source File:</strong> {village.source_file}
               </p>
 
             </div>
@@ -143,7 +129,9 @@ function App() {
       </div>
 
     </div>
+
   );
+
 }
 
 export default App;
