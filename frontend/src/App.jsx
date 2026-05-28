@@ -50,7 +50,7 @@ function App() {
           marginBottom: "20px",
         }}
       >
-        VILLAGE NAME SEARCH
+        INDIAN VILLAGES NAME SEARCH 
       </h1>
 
       <input
