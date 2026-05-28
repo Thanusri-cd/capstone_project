@@ -37,7 +37,7 @@ app.get("/api/states", async (req, res) => {
     console.error(error);
 
     res.status(500).json({
-      error: "Server Error",
+      error: error.message,
     });
 
   }
