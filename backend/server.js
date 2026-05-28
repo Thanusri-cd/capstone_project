@@ -53,17 +53,19 @@ app.get("/api/villages", async (req, res) => {
     const search = req.query.search || "";
 
     const result = await pool.query(
-      `
-      SELECT
-        village_name,
-        district_name,
-        state_name
-      FROM villages
-      WHERE village_name ILIKE $1
-      LIMIT 20
-      `,
-      [`%${search}%`]
-    );
+  `
+  SELECT DISTINCT
+    village_name,
+    district_name,
+    state_name,
+    sub_district_name,
+    source_file
+  FROM villages
+  WHERE village_name ILIKE $1
+  LIMIT 20
+  `,
+  [`%${search}%`]
+);
 
     res.json(result.rows);
 

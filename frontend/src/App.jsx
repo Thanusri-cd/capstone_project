@@ -86,22 +86,50 @@ function App() {
               }}
             >
 
-              <h3
+              <h2
                 style={{
                   margin: "0 0 10px 0",
                   color: "#222",
                 }}
               >
                 {village.village_name}
-              </h3>
+              </h2>
 
               <p
                 style={{
-                  margin: 0,
+                  margin: "5px 0",
                   color: "#555",
                 }}
               >
-                {village.district_name}, {village.state_name}
+                <strong>District:</strong> {village.district_name}
+              </p>
+
+              <p
+                style={{
+                  margin: "5px 0",
+                  color: "#555",
+                }}
+              >
+                <strong>Sub District:</strong> {village.sub_district_name}
+              </p>
+
+              <p
+                style={{
+                  margin: "5px 0",
+                  color: "#555",
+                }}
+              >
+                <strong>State:</strong> {village.state_name}
+              </p>
+
+              <p
+                style={{
+                  margin: "5px 0",
+                  color: "#777",
+                  fontSize: "14px",
+                }}
+              >
+                <strong>Source File:</strong> {village.source_file}
               </p>
 
             </div>
