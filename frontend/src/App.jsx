@@ -18,7 +18,7 @@ function App() {
     try {
 
       const response = await axios.get(
-        `http://localhost:5000/api/villages?search=${value}`
+           `https://geo-api-backend-4iym.vercel.app/api/villages?search=${value}`
       );
 
       setVillages(response.data);
