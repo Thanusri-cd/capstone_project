@@ -50,7 +50,7 @@ function App() {
           marginBottom: "20px",
         }}
       >
-        VILLAGE NAME FIXED Search
+        VILLAGE NAME SEARCH
       </h1>
 
       <input
