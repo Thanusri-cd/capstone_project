@@ -12,10 +12,12 @@ app.use(express.json());
 
 // HOME ROUTE
 app.get("/", (req, res) => {
+
   res.json({
     success: true,
     message: "Geo API Running Successfully",
   });
+
 });
 
 
@@ -53,19 +55,19 @@ app.get("/api/villages", async (req, res) => {
     const search = req.query.search || "";
 
     const result = await pool.query(
-  `
-  SELECT DISTINCT
-    village_name,
-    district_name,
-    state_name,
-    sub_district_name,
-    source_file
-  FROM villages
-  WHERE village_name ILIKE $1
-  LIMIT 20
-  `,
-  [`%${search}%`]
-);
+      `
+      SELECT DISTINCT
+        area_name AS village_name,
+        district_name,
+        state_name,
+        sub_district_name,
+        source_file
+      FROM villages
+      WHERE area_name ILIKE $1
+      LIMIT 20
+      `,
+      [`%${search}%`]
+    );
 
     res.json(result.rows);
 
@@ -76,9 +78,19 @@ app.get("/api/villages", async (req, res) => {
     res.status(500).json({
       error: error.message,
     });
+
   }
+
 });
 
+
 const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+
+  console.log(`Server running on port ${PORT}`);
+
+});
+
 
 module.exports = app;
