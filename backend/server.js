@@ -57,13 +57,13 @@ app.get("/api/villages", async (req, res) => {
     const result = await pool.query(
       `
       SELECT DISTINCT
-        area_name AS village_name,
+        village_name,
         district_name,
         state_name,
         sub_district_name,
         source_file
       FROM villages
-      WHERE area_name ILIKE $1
+      WHERE village_name ILIKE $1
       LIMIT 20
       `,
       [`%${search}%`]
