@@ -18,7 +18,7 @@ function App() {
     try {
 
       const response = await axios.get(
-           `https://geo-api-backend-4iym.vercel.app/api/villages?search=${value}`
+        `https://geo-api-backend-4iym.vercel.app/api/villages?search=${value}`
       );
 
       setVillages(response.data);
@@ -32,9 +32,23 @@ function App() {
 
   return (
 
-    <div style={{ padding: "20px" }}>
+    <div
+      style={{
+        padding: "30px",
+        fontFamily: "Arial",
+        backgroundColor: "#f4f4f4",
+        minHeight: "100vh",
+      }}
+    >
 
-      <h1>Village Autocomplete</h1>
+      <h1
+        style={{
+          color: "#333",
+          marginBottom: "20px",
+        }}
+      >
+        Village Autocomplete Search
+      </h1>
 
       <input
         type="text"
@@ -42,34 +56,59 @@ function App() {
         value={search}
         onChange={(e) => handleSearch(e.target.value)}
         style={{
-          width: "300px",
-          padding: "10px",
+          width: "350px",
+          padding: "12px",
           fontSize: "16px",
+          borderRadius: "8px",
+          border: "1px solid #ccc",
+          outline: "none",
         }}
       />
 
-      <div style={{ marginTop: "20px" }}>
+      <div style={{ marginTop: "25px" }}>
 
-        {villages.map((village, index) => (
+        {villages.length === 0 && search.length >= 2 ? (
 
-          <div
-            key={index}
-            style={{
-              border: "1px solid gray",
-              padding: "10px",
-              marginBottom: "10px",
-            }}
-          >
+          <p>No villages found</p>
 
-            <h3>{village.area_name}</h3>
+        ) : (
 
-            <p>
-              {village.district_name}, {village.state_name}
-            </p>
+          villages.map((village, index) => (
 
-          </div>
+            <div
+              key={index}
+              style={{
+                backgroundColor: "white",
+                borderRadius: "10px",
+                padding: "15px",
+                marginBottom: "15px",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+              }}
+            >
 
-        ))}
+              <h3
+                style={{
+                  margin: "0 0 10px 0",
+                  color: "#222",
+                }}
+              >
+                {village.village_name}
+              </h3>
+
+              <p
+                style={{
+                  margin: 0,
+                  color: "#555",
+                }}
+              >
+                {village.district_name}, {village.state_name}
+              </p>
+
+            </div>
+
+          ))
+
+        )}
 
       </div>
 
